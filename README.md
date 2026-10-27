@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Visakh & Aiswarya — Wedding Invitation (React)
 
 A static React + TypeScript + Vite invitation frontend. Photos, CSS, JavaScript and music are bundled with the site; Google Sheets is used only to collect RSVP responses and optional wishes/messages.
@@ -62,3 +63,7 @@ src/App.tsx                 Invitation page
 src/styles.css              Theme and responsive layout
 google-apps-script/Code.gs  Google Sheets endpoint
 ```
+=======
+# wedding-invitation-react-project
+This project is for the wedding invitation of my marriage done in react, to reduce the load caused by java
+>>>>>>> 2201655cf0abb03b99bf66f8c24ba79d708904bd
