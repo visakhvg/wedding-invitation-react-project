@@ -11,7 +11,6 @@ type Props = {
 
 export function Envelope({
   names,
-  tagline,
   date,
   envelopeTagline,
   onOpen,
