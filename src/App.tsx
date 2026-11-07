@@ -98,7 +98,12 @@ export default function App() {
             <a href="#celebrations">Celebrations</a>
             <a href="#venue">Venue</a>
             <a href="#rsvp">RSVP</a>
-            <button className="music-toggle"  type="button" onClick={toggleMusic} aria-pressed={musicOn}>
+            <button
+              className="music-toggle"
+              type="button"
+              onClick={toggleMusic}
+              aria-pressed={musicOn}
+            >
               {musicOn ? "♫ Playing" : "♫ Play our song"}
             </button>
           </nav>
@@ -145,48 +150,85 @@ export default function App() {
               </article>
             ))}
           </div>
+          <p className="story-swipe-hint">Swipe to discover our story →</p>
         </section>
         <EngagementGallery photos={invitation.engagementPhotos} />
         <section className="soft-section" id="celebrations">
           <div className="section-wrap">
-            <p className="eyebrow">Save the date</p>
-            <h2 className="section-title">The celebrations</h2>
+            <p className="eyebrow">Join us in celebration</p>
+            <h2 className="section-title">The Celebrations</h2>
+            <p className="celebration-intro">
+              Two occasions, one beautiful beginning.
+            </p>
+
             <div className="events-grid">
-              {invitation.events.map((event) => (
+              {invitation.events.map((event, index) => (
                 <article className="event-card" key={event.name}>
-                  <span className="event-symbol">✦</span>
+                  {/* <p className="event-index">
+                    0{index + 1} —{" "}
+                    {index === 0 ? "THE WEDDING" : "THE RECEPTION"}
+                  </p> */}
+
                   <h3>{event.name}</h3>
-                  <p className="event-time">{event.time}</p>
-                  <p>{event.place}</p>
-                  <p className="muted">{event.note}</p>
+
+                  <p className="event-venue">{event.place}</p>
+
+                  <p className="event-place">{event.address}</p>
+
+                  <div className="event-date">
+                    {event.date && <span>{event.date}</span>}
+                    <span>&#x269C;</span>
+                    <span>{event.time}</span>
+                  </div>
+
+                  {event.note && <p className="event-note">{event.note}</p>}
                 </article>
               ))}
             </div>
+
+            <p className="celebration-closing">
+              We look forward to celebrating with you.
+            </p>
           </div>
         </section>
         <section className="section-wrap venue-section" id="venue">
           <p className="eyebrow">We would love to see you</p>
           <h2 className="section-title">Find us on the map</h2>
-          <h3>{invitation.venue.name}</h3>
-          <p>{invitation.venue.address}</p>
-          {invitation.venue.mapEmbedUrl && (
-            <div className="map-box">
-              <iframe
-                title="Wedding venue map"
-                src={invitation.venue.mapEmbedUrl}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          )}
-          <a
-            className="button button-outline"
-            href={invitation.venue.mapLink}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open in Google Maps ↗
-          </a>
+
+          <div className="venue-grid">
+            {invitation.venue.map((venue, index) => (
+              <article className="venue-card" key={venue.name}>
+                {/* <p className="venue-label">
+                  {index === 0 ? "01 · WEDDING CEREMONY" : "02 · RECEPTION"}
+                </p> */}
+
+                <h3>{venue.name}</h3>
+                <p className="venue-address">{venue.address}</p>
+
+                {venue.mapEmbedUrl && (
+                  <div className="map-box">
+                    <iframe
+                      title={`${venue.name} map`}
+                      src={venue.mapEmbedUrl}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                )}
+
+                <a
+                  className="button button-outline"
+                  href={venue.mapLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Open in Google Maps ↗
+                </a>
+              </article>
+            ))}
+          </div>
+
+          <p className="venue-swipe-hint">Swipe to explore both locations →</p>
         </section>
         <section className="soft-section rsvp-section" id="rsvp">
           <div className="section-wrap rsvp-wrap">
