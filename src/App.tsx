@@ -182,7 +182,7 @@ export default function App() {
             </p>
 
             <div className="events-grid">
-              {invitation.events.map((event, index) => (
+              {invitation.events.map((event) => (
                 <article className="event-card" key={event.name}>
                   {/* <p className="event-index">
                     0{index + 1} —{" "}
@@ -216,7 +216,7 @@ export default function App() {
           <h2 className="section-title">Find us on the map</h2>
 
           <div className="venue-grid">
-            {invitation.venue.map((venue, index) => (
+            {invitation.venue.map((venue) => (
               <article className="venue-card" key={venue.name}>
                 {/* <p className="venue-label">
                   {index === 0 ? "01 · WEDDING CEREMONY" : "02 · RECEPTION"}
