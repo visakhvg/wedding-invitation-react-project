@@ -12,8 +12,9 @@ export type RsvpPayload = {
  */
 export async function submitRsvp(payload: RsvpPayload): Promise<void> {
   const endpoint = import.meta.env.VITE_RSVP_ENDPOINT?.trim()
+  console.log('RSVP endpoint:', endpoint)
   if (!endpoint) throw new Error('RSVP is not connected yet. Please try again later.')
-
+console.log('RSVP endpoint:', endpoint)
   await fetch(endpoint, {
     method: 'POST',
     mode: 'no-cors',

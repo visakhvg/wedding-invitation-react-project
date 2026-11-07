@@ -122,15 +122,35 @@ export default function App() {
         <section className="section-wrap" id="couple">
           <p className="eyebrow">Together with our families</p>
           <h2 className="section-title">Two hearts, one family</h2>
-          <div className="couple-grid">
-            {[invitation.groom, invitation.bride].map((person) => (
-              <article className="person-card" key={person.name}>
-                <img src={person.photo} alt={person.fullName} loading="lazy" />
-                <p className="script-name">{person.name}</p>
-                <h3>{person.fullName}</h3>
-                <p>{person.about}</p>
-              </article>
-            ))}
+
+          <div className="couple-portrait">
+            <img
+              src="/assets/engsit.JPG"
+              alt="Visakh and Aiswarya"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="couple-details">
+            <article className="person-detail">
+              <p className="person-label">The Groom</p>
+              <h3>{invitation.groom.fullName}</h3>
+              {/* <p className="person-fullname">{invitation.groom.fullName}</p> */}
+              <div className="family-divider"></div>
+              <p className="parent-label">Son of</p>
+              <p>{invitation.groom.about.replace("S/o ", "")}</p>
+              <p className="person-address">{invitation.groom.address} </p>
+            </article>
+
+            <article className="person-detail">
+              <p className="person-label">The Bride</p>
+              <h3>{invitation.bride.fullName}</h3>
+              {/* <p className="person-fullname">{invitation.bride.fullName}</p> */}
+              <div className="family-divider"></div>
+              <p className="parent-label">Daughter of</p>
+              <p>{invitation.bride.about.replace("D/o ", "")}</p>
+              <p className="person-address">{invitation.bride.address} </p>
+            </article>
           </div>
         </section>
         {/* <section className="soft-section"><div className="section-wrap"><p className="eyebrow">With the blessings of</p><h2 className="section-title">Our families</h2><div className="family-grid">{invitation.families.map((family) => <article className="family-card" key={family.title}><h3>{family.title}</h3><p>{family.text}</p></article>)}</div></div></section> */}

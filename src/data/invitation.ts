@@ -2,7 +2,8 @@ export type Person = {
   name: string
   fullName: string
   photo: string
-  about: string
+  about: string,
+  address: string
 }
 
 export const invitation = {
@@ -10,13 +11,15 @@ export const invitation = {
     name: "Visakh",
     fullName: "Visakh Venugopal",
     photo: "/assets/groom.svg",
-    about: "S/o Shri. G Venugopalan Nair and Smt. S S Devi Priya",
+    about: "S/o Smt. S.S Devi Priya & Shri. G Venugopalan Nair",
+    address: "Punartham, Nadukkadu, Thiruvananthapuram",
   } satisfies Person,
   bride: {
     name: "Aiswarya",
     fullName: "Aiswarya P Anil",
     photo: "/assets/bride.svg",
-    about: "D/o Shri. Anil Shankar R.S and Smt. Preetha Kumari C.P",
+    about: "D/o Smt. Preetha Kumari C.P & Shri. Anil Shankar R.S",
+    address: "Karthika, Eanchakkal, Thiruvananthapuram",
   } satisfies Person,
   envelopeTagline: "Our Forever Begins Here",
   tagline: "We are tying the knot",
