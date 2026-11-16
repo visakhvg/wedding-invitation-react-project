@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Envelope } from "./components/Envelope";
-import { RsvpForm } from "./components/RsvpForm";
+// import { RsvpForm } from "./components/RsvpForm";
 import { invitation } from "./data/invitation";
 import EngagementGallery from "./components/EngagementGallery";
+import Reveal from './components/Reveal';
 
 function Countdown() {
   const target = new Date(invitation.weddingDateTime).getTime();
@@ -93,11 +94,11 @@ export default function App() {
             {names}
           </a>
           <nav>
-            <a href="#couple">The couple</a>
+            <a href="#couple">The Couple</a>
             <a href="#story">Our story</a>
             <a href="#celebrations">Celebrations</a>
-            <a href="#venue">Venue</a>
-            <a href="#rsvp">RSVP</a>
+            {/* <a href="#venue">Venue</a> */}
+            {/* <a href="#rsvp">RSVP</a> */}
             <button
               className="music-toggle"
               type="button"
@@ -115,112 +116,139 @@ export default function App() {
           <div className="divider-flourish">❦</div>
           <p className="hero-quote">{invitation.quote}</p>
           <Countdown />
-          <a className="button button-outline" href="#rsvp">
+          {/* <a className="button button-outline" href="#rsvp">
             Kindly respond
-          </a>
+          </a> */}
         </section>
-        <section className="section-wrap" id="couple">
-          <p className="eyebrow">Together with our families</p>
-          <h2 className="section-title">Two hearts, one family</h2>
+        <Reveal>
+          <section className="section-wrap" id="couple">
+            <p className="eyebrow">Together with our families</p>
+            <h2 className="section-title">Two hearts, one new beginning</h2>
 
-          <div className="couple-portrait">
-            <img
-              src="/assets/engsit.JPG"
-              alt="Visakh and Aiswarya"
-              loading="lazy"
-            />
-          </div>
+            <div className="couple-portrait">
+              <img
+                src="/assets/engsit.JPG"
+                alt="Visakh and Aiswarya"
+                loading="lazy"
+              />
+            </div>
 
-          <div className="couple-details">
-            <article className="person-detail">
-              <p className="person-label">The Groom</p>
-              <h3>{invitation.groom.fullName}</h3>
-              {/* <p className="person-fullname">{invitation.groom.fullName}</p> */}
-              <div className="family-divider"></div>
-              <p className="parent-label">Son of</p>
-              <p>{invitation.groom.about.replace("S/o ", "")}</p>
-              <p className="person-address">{invitation.groom.address} </p>
-            </article>
-
-            <article className="person-detail">
-              <p className="person-label">The Bride</p>
-              <h3>{invitation.bride.fullName}</h3>
-              {/* <p className="person-fullname">{invitation.bride.fullName}</p> */}
-              <div className="family-divider"></div>
-              <p className="parent-label">Daughter of</p>
-              <p>{invitation.bride.about.replace("D/o ", "")}</p>
-              <p className="person-address">{invitation.bride.address} </p>
-            </article>
-          </div>
-        </section>
-        {/* <section className="soft-section"><div className="section-wrap"><p className="eyebrow">With the blessings of</p><h2 className="section-title">Our families</h2><div className="family-grid">{invitation.families.map((family) => <article className="family-card" key={family.title}><h3>{family.title}</h3><p>{family.text}</p></article>)}</div></div></section> */}
-        <section className="section-wrap" id="story">
-          <p className="eyebrow">Every love story is beautiful</p>
-          <h2 className="section-title">Our little story</h2>
-          <div className="story-grid">
-            {invitation.story.map((chapter, index) => (
-              <article className="story-card" key={chapter.title}>
-                <img src={chapter.photo} alt={chapter.title} loading="lazy" />
-                <div className="story-copy">
-                  <span>{chapter.date}</span>
-                  <h3>{chapter.title}</h3>
-                  <p>{chapter.text}</p>
-                </div>
-                <span className="story-number">0{index + 1}</span>
+            <div className="couple-details">
+              <article className="person-detail">
+                <p className="person-label">The Groom</p>
+                <h3>{invitation.groom.fullName}</h3>
+                {/* <p className="person-fullname">{invitation.groom.fullName}</p> */}
+                <div className="family-divider"></div>
+                <p className="parent-label">Son of</p>
+                <p>{invitation.groom.about.replace("S/o ", "")}</p>
+                <p className="person-address">{invitation.groom.address} </p>
               </article>
-            ))}
-          </div>
-          <p className="story-swipe-hint">Swipe to discover our story →</p>
-        </section>
-        <EngagementGallery photos={invitation.engagementPhotos} />
-        <section className="soft-section" id="celebrations">
-          <div className="section-wrap">
-            <p className="eyebrow">Join us in celebration</p>
-            <h2 className="section-title">The Celebrations</h2>
-            <p className="celebration-intro">
-              Two occasions, one beautiful beginning.
-            </p>
 
-            <div className="events-grid">
-              {invitation.events.map((event) => (
-                <article className="event-card" key={event.name}>
-                  {/* <p className="event-index">
+              <article className="person-detail">
+                <p className="person-label">The Bride</p>
+                <h3>{invitation.bride.fullName}</h3>
+                {/* <p className="person-fullname">{invitation.bride.fullName}</p> */}
+                <div className="family-divider"></div>
+                <p className="parent-label">Daughter of</p>
+                <p>{invitation.bride.about.replace("D/o ", "")}</p>
+                <p className="person-address">{invitation.bride.address} </p>
+              </article>
+            </div>
+          </section>
+        </Reveal>
+        {/* <section className="soft-section"><div className="section-wrap"><p className="eyebrow">With the blessings of</p><h2 className="section-title">Our families</h2><div className="family-grid">{invitation.families.map((family) => <article className="family-card" key={family.title}><h3>{family.title}</h3><p>{family.text}</p></article>)}</div></div></section> */}
+        <Reveal>
+          <section className="section-wrap" id="story">
+            <p className="eyebrow">Every love story is beautiful</p>
+            <h2 className="section-title">Our little story</h2>
+            <div className="story-grid">
+              {invitation.story.map((chapter, index) => (
+                <article className="story-card" key={chapter.title}>
+                  <img src={chapter.photo} alt={chapter.title} loading="lazy" />
+                  <div className="story-copy">
+                    <span>{chapter.date}</span>
+                    <h3>{chapter.title}</h3>
+                    <p>{chapter.text}</p>
+                  </div>
+                  <span className="story-number">0{index + 1}</span>
+                </article>
+              ))}
+            </div>
+            <p className="story-swipe-hint">Swipe to discover our story →</p>
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="soft-section" id="engagement">
+            <EngagementGallery photos={invitation.engagementPhotos} />
+          </section>
+        </Reveal>
+        <Reveal>
+          <section className="soft-section" id="celebrations">
+            <div className="section-wrap">
+              <p className="eyebrow">Join us in celebration</p>
+              <h2 className="section-title">The Celebrations</h2>
+              <p className="celebration-intro">
+                Two occasions, one beautiful beginning.
+              </p>
+
+              <div className="events-grid">
+                {invitation.events.map((event) => (
+                  <article className="event-card" key={event.name}>
+                    {/* <p className="event-index">
                     0{index + 1} —{" "}
                     {index === 0 ? "THE WEDDING" : "THE RECEPTION"}
                   </p> */}
 
-                  <h3>{event.name}</h3>
+                    <h3>{event.name}</h3>
 
-                  <p className="event-venue">{event.place}</p>
+                    <p className="event-venue">{event.place}</p>
 
-                  <p className="event-place">{event.address}</p>
+                    <p className="event-place">{event.address}</p>
 
-                  <div className="event-date">
-                    {event.date && <span>{event.date}</span>}
-                    <span>&#x269C;</span>
-                    <span>{event.time}</span>
-                  </div>
+                    <div className="event-date">
+                      {event.date && <span>{event.date}</span>}
+                      <span>&#x269C;</span>
+                      <span>{event.time}</span>
+                    </div>
+                    {event.note && <p className="event-note">{event.note}</p>}
+                    {event.mapEmbedUrl && (
+                      <div className="map-box">
+                        <iframe
+                          title={`${event.name} map`}
+                          src={event.mapEmbedUrl}
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                        />
+                      </div>
+                    )}
+                    <a
+                      className="button button-outline"
+                      href={event.mapLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Open in Google Maps ↗
+                    </a>
+                  </article>
+                ))}
+              </div>
 
-                  {event.note && <p className="event-note">{event.note}</p>}
-                </article>
-              ))}
+              <p className="celebration-closing">
+                We look forward to celebrating with you.
+              </p>
             </div>
-
-            <p className="celebration-closing">
-              We look forward to celebrating with you.
-            </p>
-          </div>
-        </section>
-        <section className="section-wrap venue-section" id="venue">
+          </section>
+        </Reveal>
+        {/* <section className="section-wrap venue-section" id="venue">
           <p className="eyebrow">We would love to see you</p>
           <h2 className="section-title">Find us on the map</h2>
 
           <div className="venue-grid">
             {invitation.venue.map((venue) => (
               <article className="venue-card" key={venue.name}>
-                {/* <p className="venue-label">
+                <p className="venue-label">
                   {index === 0 ? "01 · WEDDING CEREMONY" : "02 · RECEPTION"}
-                </p> */}
+                </p>
 
                 <h3>{venue.name}</h3>
                 <p className="venue-address">{venue.address}</p>
@@ -249,18 +277,18 @@ export default function App() {
           </div>
 
           <p className="venue-swipe-hint">Swipe to explore both locations →</p>
-        </section>
-        <section className="soft-section rsvp-section" id="rsvp">
+        </section> */}
+        {/* <section className="soft-section rsvp-section" id="rsvp">
           <div className="section-wrap rsvp-wrap">
             <p className="eyebrow">Kindly reply</p>
             <h2 className="section-title">{invitation.rsvp.heading}</h2>
             <p>{invitation.rsvp.deadline}</p>
             <RsvpForm />
           </div>
-        </section>
+        </section> */}
         <footer className="footer">
           <p className="divider-flourish">❦</p>
-          <p className="footer-quote">“{invitation.quote}”</p>
+          <p className="footer-quote">“{invitation.footer_quote}”</p>
           <p className="script-name">{invitation.closingLine}</p>
           <p className="footer-date">{invitation.weddingDateLabel}</p>
         </footer>
@@ -272,6 +300,52 @@ export default function App() {
         >
           {musicOn ? "♫ Sound off" : "♫ Play music"}
         </button> */}
+        {/* Scroll to next section button */}
+
+        <button
+          className="section-scroll-button"
+          type="button"
+          aria-label="Scroll to next section"
+          onClick={() => {
+            const main = document.querySelector(".invitation");
+            if (!main) return;
+
+            const sections = Array.from(
+              main.querySelectorAll<HTMLElement>(
+                ":scope > #top, :scope > .reveal",
+              ),
+            );
+
+            const headerHeight =
+              main.querySelector(".topbar")?.getBoundingClientRect().height ??
+              0;
+
+            const currentPosition = headerHeight;
+
+            let currentIndex = 0;
+            let closestDistance = Infinity;
+
+            sections.forEach((section, index) => {
+              const distance = Math.abs(
+                section.getBoundingClientRect().top - currentPosition,
+              );
+
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                currentIndex = index;
+              }
+            });
+
+            const nextSection = sections[currentIndex + 1];
+
+            nextSection?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }}
+        >
+          ↓
+        </button>
       </main>
     </>
   );

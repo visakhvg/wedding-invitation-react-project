@@ -22,20 +22,34 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =========================================
+   HANDMADE IVORY PAPER BACKGROUND
+========================================= */
+
 body {
   margin: 0;
-  background: var(--cream);
+  background-color: #fbf3e9;
+
   background-image:
     radial-gradient(
-      ellipse at 8% 8%,
-      rgba(190, 119, 129, 0.14),
-      transparent 27%
+      ellipse at 15% 15%,
+      rgba(190, 119, 129, 0.12),
+      transparent 35%
     ),
     radial-gradient(
-      ellipse at 94% 78%,
-      rgba(184, 149, 88, 0.14),
-      transparent 30%
+      ellipse at 85% 80%,
+      rgba(184, 149, 88, 0.13),
+      transparent 35%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(130, 95, 65, 0.018) 0px,
+      rgba(130, 95, 65, 0.018) 1px,
+      transparent 1px,
+      transparent 4px
     );
+
+  background-attachment: fixed;
 }
 
 a {
@@ -56,16 +70,33 @@ select {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: linear-gradient(145deg, #fff8ed, #f7e5dc 65%, #f9efe2);
   padding: 24px;
+
   transition:
     opacity 0.8s ease,
     visibility 0.8s;
+  background-color: #fbf3e9;
+  background-image:
+    radial-gradient(
+      ellipse at 50% 48%,
+      rgba(224, 190, 166, 0.2),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(184, 149, 88, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(182, 111, 120, 0.08),
+      transparent 30%
+    );
 }
 
 .gate:before,
 .gate:after {
-  content: "❧";
+  /* content: "❧"; */
   position: absolute;
   color: rgba(111, 39, 56, 0.22);
   font-size: clamp(8rem, 25vw, 22rem);
@@ -109,12 +140,94 @@ select {
   filter: drop-shadow(0 22px 30px rgba(87, 41, 46, 0.14));
 }
 
+/* =========================================
+   ENVELOPE - TEXTURED BLUSH PAPER
+========================================= */
+
+.envelope {
+  position: relative;
+  width: min(82vw, 510px);
+  aspect-ratio: 1.48;
+  perspective: 1200px;
+  filter: drop-shadow(0 24px 35px rgba(87, 41, 46, 0.18));
+}
+
+/* Back of the envelope */
 .envelope-back {
   position: absolute;
   inset: 0;
-  background: #dcb6a7;
+
+  background-color: #dcb6a7;
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.22),
+      transparent 45%,
+      rgba(116, 63, 56, 0.08)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.045) 0px,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
   border: 1px solid #cba28f;
   border-radius: 4px;
+  box-shadow: inset 0 0 35px rgba(115, 66, 56, 0.08);
+}
+
+/* Front folded paper */
+.envelope-front {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+
+  background-color: #d9afa1;
+  background-image:
+    linear-gradient(
+      145deg,
+      rgba(255, 245, 233, 0.38),
+      rgba(191, 130, 117, 0.12)
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 4px;
+}
+
+/* Top opening flap */
+.envelope-flap {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+
+  background-color: #e6c6b7;
+  background-image:
+    linear-gradient(
+      145deg,
+      rgba(255, 250, 242, 0.55),
+      rgba(192, 137, 125, 0.12)
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.045) 0px,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  transform-origin: top;
+  transition: transform 1s cubic-bezier(0.3, 0.7, 0.2, 1);
+  backface-visibility: hidden;
 }
 
 .envelope-card {
@@ -165,26 +278,6 @@ select {
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   margin: 8px 0;
-}
-
-.envelope-front {
-  position: absolute;
-  z-index: 3;
-  inset: 0;
-  background: linear-gradient(145deg, #e7c7b6, #d6aa9d);
-  clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
-  border-radius: 4px;
-}
-
-.envelope-flap {
-  position: absolute;
-  z-index: 4;
-  inset: 0;
-  background: linear-gradient(145deg, #f0d8c9, #d9b2a5);
-  clip-path: polygon(0 0, 100% 0, 50% 58%);
-  transform-origin: top;
-  transition: transform 1s cubic-bezier(0.3, 0.7, 0.2, 1);
-  backface-visibility: hidden;
 }
 
 .wax-seal {
@@ -293,7 +386,6 @@ select {
 .topbar nav a:hover {
   color: var(--rose);
 }
-
 
 .section-wrap {
   width: min(1080px, 90%);
@@ -792,7 +884,6 @@ section > .eyebrow,
 }
 
 @media (max-width: 760px) {
-  
   .hero {
     padding-top: 70px;
     min-height: 510px;
@@ -818,10 +909,6 @@ section > .eyebrow,
 
   .count-cell span {
     font-size: 0.65rem;
-  }
-
-  .envelope {
-    width: min(91vw, 480px);
   }
 
   .gate-hint {
@@ -860,9 +947,26 @@ section > .eyebrow,
   }
 
   .envelope-card {
-    top: 4%;
-    height: 92%;
-    padding: 10px;
+    background-color: #fffaf2;
+
+    background-image:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.7),
+        rgba(247, 236, 218, 0.35)
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(130, 95, 65, 0.025) 0px,
+        rgba(130, 95, 65, 0.025) 1px,
+        transparent 1px,
+        transparent 5px
+      );
+
+    border: 1px solid #d8bd8a;
+    box-shadow:
+      inset 0 0 0 5px rgba(255, 255, 255, 0.18),
+      inset 0 0 25px rgba(184, 149, 88, 0.08);
   }
 
   .gate-quote {
@@ -1017,7 +1121,6 @@ section > .eyebrow,
     margin-bottom: 30px;
   }
 }
-
 
 /* CELEBRATIONS - REFINED TYPOGRAPHY */
 
@@ -1174,8 +1277,6 @@ section > .eyebrow,
   #story .story-card {
     flex-basis: 90%;
   }
-
-  
 }
 
 /* STORY IMAGE - MOBILE FIX */

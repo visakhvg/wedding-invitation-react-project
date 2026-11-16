@@ -25,6 +25,8 @@ export const invitation = {
   tagline: "We are tying the knot",
   quote:
     "And so, beneath the same sky that watched our story unfold, we gather the people we love to witness the day our two tomorrows become one.",
+  footer_quote:
+    "Join us as we begin our happily ever after.",  
   weddingDateTime: "2026-12-31T10:30:00+05:30",
   weddingDateLabel: "Thursday, 31st December 2026",
   closingLine: "With love, Visakh & Aiswarya",
@@ -62,7 +64,7 @@ export const invitation = {
     { src: "/assets/eng8.JPG", caption: "A Promise of Forever" },
     // { src: '/assets/eng3.JPG', caption: 'A special moment' },
     // { src: '/assets/eng4.JPG', caption: 'Together with family' },
-    { src: "/assets/eng5.JPG", caption: "Our Favourite People" },
+    { src: "/assets/eng5.JPG", caption: "Roots" },
     { src: "/assets/eng7.JPG", caption: "Side by Side" },
     { src: "/assets/engaeOtdoor.JPG", caption: "Wherever, Together" },
     { src: "/assets/sidebySide.JPG", caption: "A Moment of Us" },
@@ -77,6 +79,8 @@ export const invitation = {
       date: "Thursday, 31st December 2026",
       time: "12:00 pm – 12:23 pm",
       note: "Reception · 11:00 am",
+      mapLink: "https://www.google.com/maps/place/RDR+Convention+Centre/@8.5036568,76.9660759,17z/data=!3m1!4b1!4m6!3m5!1s0x3b05ba4a6959e6c9:0xcb867b71b24e2b48!8m2!3d8.5036515!4d76.9686508!16s%2Fg%2F1tn4wlr4?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D",
+      mapEmbedUrl: "",
     },
     {
       name: "Groom Side Reception",
@@ -85,6 +89,8 @@ export const invitation = {
       date: "Friday, 1st January 2027",
       time: "5 pm to 8:30 pm",
       note: "",
+      mapLink: "https://www.google.com/maps/place/Ramya+Kalyanamandapam/@8.4355268,77.0238181,17z/data=!3m1!4b1!4m6!3m5!1s0x3b05afe43f440bfb:0xb1e35adff1c8ef3c!8m2!3d8.4355215!4d77.026393!16s%2Fg%2F11xbrq6tm?entry=ttu&g_ep=EgoyMDI2MTEwMy4wIKXMDSoASAFQAw%3D%3D",
+      mapEmbedUrl: "",
     },
     // { name: 'Groom Side Reception', date:'',time: 'From 5pm to 8:30pm', place: 'Ramya Kalyanamandapam, Pallichal, Thiruvananthapuram', note: 'We look forward to celebrating with you.' },
   ],

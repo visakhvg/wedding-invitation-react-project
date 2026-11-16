@@ -1,3 +1,8 @@
+
+/* =========================================================
+   1. ENGAGEMENT GALLERY
+   ========================================================= */
+
 .engagement-gallery {
   max-width: 1100px;
   margin: 80px auto;
@@ -24,6 +29,7 @@
   margin: 10px 0;
 }
 
+/* Gallery image layout */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -69,7 +75,10 @@
 }
 
 
-/* Full-screen photo viewer */
+/* =========================================================
+   2. ENGAGEMENT PHOTO LIGHTBOX
+   ========================================================= */
+
 .gallery-lightbox {
   position: fixed;
   inset: 0;
@@ -122,7 +131,7 @@
   margin-top: 8px;
 }
 
-/* Transparent close button */
+/* Lightbox close button */
 .lightbox-close {
   position: absolute;
   top: 18px;
@@ -136,11 +145,11 @@
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(255,255,255,0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 50%;
 
   color: white;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
 
   font-size: 28px;
   cursor: pointer;
@@ -148,10 +157,10 @@
 }
 
 .lightbox-close:hover {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* Navigation arrows */
+/* Lightbox previous and next buttons */
 .lightbox-arrow {
   position: absolute;
   top: 50%;
@@ -161,11 +170,11 @@
   width: 46px;
   height: 46px;
 
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
 
   color: white;
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
 
   font-size: 32px;
   cursor: pointer;
@@ -179,36 +188,10 @@
   right: 18px;
 }
 
-@media (max-width: 650px) {
-  .gallery-lightbox {
-    padding: 65px 12px 25px;
-  }
 
-  .gallery-lightbox figure img {
-    max-width: 100%;
-    max-height: calc(100dvh - 160px);
-  }
-
-  .lightbox-close {
-    top: 12px;
-    right: 12px;
-  }
-
-  .lightbox-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 26px;
-  }
-
-  .lightbox-arrow.left {
-    left: 5px;
-  }
-
-  .lightbox-arrow.right {
-    right: 5px;
-  }
-}
-
+/* =========================================================
+   3. OUR STORY - IMAGE STYLING
+   ========================================================= */
 
 .story-card img {
   display: block;
@@ -241,37 +224,71 @@
   transition: transform 0.5s ease;
 }
 
-@media (max-width: 650px) {
-  .engagement-gallery {
-    padding: 16px;
-    margin: 48px auto;
-  }
 
-  .gallery-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 180px;
-    gap: 10px;
-  }
+/* =========================================================
+   4. HEADER / NAVIGATION
+   ========================================================= */
 
-  .gallery-item.featured {
-    grid-column: span 2;
-    grid-row: span 1;
-    height: 280px;
-  }
+/* Sticky header on desktop and mobile */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  box-sizing: border-box;
+  width: 100%;
 }
 
+
+/* =========================================================
+   5. FULL-PAGE SECTION TRANSITIONS
+   ========================================================= */
+
+/* Smooth movement for navigation links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Snap scrolling between invitation sections */
+.invitation {
+  scroll-snap-type: y mandatory;
+}
+
+/* Each major section becomes a snap destination */
+.invitation > #top,
+.invitation > #couple,
+.invitation > #story,
+.invitation > #engagement,
+.invitation > #celebrations,
+.invitation > #venue,
+.invitation > .footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Keep long sections fully accessible */
+.invitation > #couple,
+.invitation > #story,
+.invitation > #engagement,
+.invitation > #celebrations,
+.invitation > #venue {
+  scroll-margin-top: 0;
+}
+
+
+/* =========================================================
+   6. TABLET AND MOBILE RESPONSIVE STYLES
+   ========================================================= */
+
 @media (max-width: 760px) {
+
+  /* Mobile header layout */
   .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 10000;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 12px 14px;
-    width: 100%;
     min-height: auto;
   }
 
@@ -298,16 +315,29 @@
     padding: 6px 12px;
     font-size: 12px;
   }
+
+  /* Keep touch scrolling natural on mobile */
+  .invitation {
+    scroll-snap-type: y proximity;
+  }
 }
 
-@media screen and (max-width: 650px) {
+
+@media (max-width: 650px) {
+
+  /* Mobile engagement gallery */
+  .engagement-gallery {
+    padding: 16px;
+    margin: 48px auto;
+  }
+
   .engagement-gallery .gallery-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-template-rows: 260px 180px 180px !important;
-    grid-auto-flow: row !important;
-    grid-auto-rows: unset !important;
-    gap: 12px !important;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 260px 180px 180px;
+    grid-auto-flow: row;
+    grid-auto-rows: unset;
+    gap: 12px;
   }
 
   .engagement-gallery .gallery-item {
@@ -323,8 +353,8 @@
   }
 
   .engagement-gallery .gallery-item.featured {
-    grid-column: 1 / -1 !important;
-    grid-row: 1 !important;
+    grid-column: 1 / -1;
+    grid-row: 1;
     height: 100%;
   }
 
@@ -334,4 +364,125 @@
     height: 100%;
     object-fit: cover;
   }
+
+  /* Mobile lightbox */
+  .gallery-lightbox {
+    padding: 65px 12px 25px;
+  }
+
+  .gallery-lightbox figure img {
+    max-width: 100%;
+    max-height: calc(100dvh - 160px);
+  }
+
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .lightbox-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+  }
+
+  .lightbox-arrow.left {
+    left: 5px;
+  }
+
+  .lightbox-arrow.right {
+    right: 5px;
+  }
 }
+
+
+/* =========================================================
+   7. ACCESSIBILITY
+   ========================================================= */
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .gallery-item img {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   8. REVEAL ANIMATION
+   ========================================================= */
+
+
+/* =========================================
+   PAGE-BY-PAGE SMOOTH SCROLLING
+========================================= */
+
+/* The browser page is the actual scroll container */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+/* Each Reveal wrapper becomes a scroll destination */
+.invitation > .reveal {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Hero section is not wrapped in Reveal */
+.invitation > #top {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Account for the sticky navigation */
+.invitation > .reveal,
+.invitation > #top {
+  scroll-margin-top: 90px;
+}
+
+/* =========================================
+   DOWN ARROW BUTTON
+========================================= */
+
+.section-scroll-button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 10001;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #a77b45;
+  background: #fff9f1;
+  color: #6f2738;
+
+  font-size: 26px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 760px) {
+  .invitation > .reveal,
+  .invitation > #top {
+    scroll-margin-top: 120px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+}
+
