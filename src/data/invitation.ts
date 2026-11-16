@@ -64,7 +64,7 @@ export const invitation = {
     { src: "/assets/eng8.JPG", caption: "A Promise of Forever" },
     // { src: '/assets/eng3.JPG', caption: 'A special moment' },
     // { src: '/assets/eng4.JPG', caption: 'Together with family' },
-    { src: "/assets/eng5.JPG", caption: "Roots" },
+    { src: "/assets/eng5.JPG", caption: "Cherished" },
     { src: "/assets/eng7.JPG", caption: "Side by Side" },
     { src: "/assets/engaeOtdoor.JPG", caption: "Wherever, Together" },
     { src: "/assets/sidebySide.JPG", caption: "A Moment of Us" },
