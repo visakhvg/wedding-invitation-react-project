@@ -113,5 +113,5 @@ export const invitation = {
     heading: "Will you be joining us?",
     deadline: "Kindly let us know if you can celebrate with us.",
   },
-  music: { file: "/assets/eemizhikallong.mp3", credit: "" },
+  music: { file: "/assets/naanPizhaiFlute.mp3", credit: "" },
 } as const;

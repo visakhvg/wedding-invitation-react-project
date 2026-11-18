@@ -248,31 +248,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Snap scrolling between invitation sections */
-.invitation {
-  scroll-snap-type: y mandatory;
-}
-
-/* Each major section becomes a snap destination */
-.invitation > #top,
-.invitation > #couple,
-.invitation > #story,
-.invitation > #engagement,
-.invitation > #celebrations,
-.invitation > #venue,
-.invitation > .footer {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* Keep long sections fully accessible */
-.invitation > #couple,
-.invitation > #story,
-.invitation > #engagement,
-.invitation > #celebrations,
-.invitation > #venue {
-  scroll-margin-top: 0;
-}
 
 
 /* =========================================================
@@ -423,26 +398,9 @@ html {
 /* The browser page is the actual scroll container */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
 }
 
-/* Each Reveal wrapper becomes a scroll destination */
-.invitation > .reveal {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
 
-/* Hero section is not wrapped in Reveal */
-.invitation > #top {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-/* Account for the sticky navigation */
-.invitation > .reveal,
-.invitation > #top {
-  scroll-margin-top: 90px;
-}
 
 /* =========================================
    DOWN ARROW BUTTON
@@ -472,12 +430,7 @@ html {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
-@media (max-width: 760px) {
-  .invitation > .reveal,
-  .invitation > #top {
-    scroll-margin-top: 120px;
-  }
-}
+
 
 @media (prefers-reduced-motion: reduce) {
   html {

@@ -49,7 +49,7 @@ body {
       transparent 4px
     );
 
-  background-attachment: fixed;
+   background-attachment: scroll;
 }
 
 a {
